@@ -1,0 +1,5 @@
+from string import Template
+Student=[('ram',80),('ankit' , 33),('bob',56)]
+t=Template('hi $name, you have got $marks marks')
+for i in Student:
+ print(t.substitute(name=i[0],marks=i[1]))
