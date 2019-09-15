@@ -1,0 +1,6 @@
+from tkinter import *
+
+root=Tk()
+theLabel = Label(root, text="this is very easy")
+theLabel.pack()
+root.mainloop()
