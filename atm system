@@ -1,0 +1,11 @@
+balance = 500 
+amount= int(input("enter the withdrawl amount: "))
+
+if amount % 5 == 0:
+    if amount< balance:
+        print("withdrawl amount: ", amount)
+        print("rem_bal: ", balance-amount) 
+    else:
+        print("not enough to withdrawl!!!!!")
+else:
+    print("Not able to withdrawl!!!!")  
