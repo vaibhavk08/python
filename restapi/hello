@@ -1,0 +1,18 @@
+from flask import Flask, jsonify, request
+flask4 = Flask(__name__)
+
+@flask4.route('/', methods= ['GET', 'POST'])
+
+def index():
+    if (request.method == 'POST'):
+        some_json = request.get_json()
+        return jsonify({'you sent': some_json}), 201
+    else:
+        return jsonify({"about": "Hello World"})
+
+@flask4.route('/multi/<int:num>', methods=['GET'])
+def get_multiply10(num):
+    return jsonify({'result': num*10})
+
+if __name__ == "__main__":
+    flask4.run(debug=True)
