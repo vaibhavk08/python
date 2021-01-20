@@ -1,0 +1,32 @@
+from flask import Flask, request, jsonify, render_template
+import requests
+import json
+
+flask8 = Flask(__name__, template_folder='template')
+
+data= [{"data_id":"mercury","isFavourite":False,"name":"Mercury"},
+{"id":"venus","isFavourite":False,"name":"Venus"},
+{"id":"earth","isFavourite":False,"name":"Earth"},
+{"id":"mars","isFavourite":False,"name":"Mars"},
+{"id":"ceres","isFavourite":False,"name":"Ceres"},
+{"id":"jupiter","isFavourite":False,"name":"Jupiter"},
+{"id":"saturn","isFavourite":False,"name":"Saturn"},
+{"id":"pluto","isFavourite":False,"name":"Pluto"},
+{"id":"haumea","isFavourite":False,"name":"Haumea"},
+{"id":"makemake","isFavourite":False,"name":"Makemake"},
+{"id":"eris","isFavourite":False,"name":"Eris"}]
+
+@flask8.route("/")
+def index():
+    return "Welocme to API"
+
+@flask8.route("/data", methods=['GET'])
+def get():
+    return jsonify({'Data': data})
+
+@flask8.route("/data/<int:id>", methods= ['GET'])
+def get_data(id):
+    return jsonify({'id': data[id]})    
+
+if __name__ == "__main__":
+    flask8.run(debug= True)    
